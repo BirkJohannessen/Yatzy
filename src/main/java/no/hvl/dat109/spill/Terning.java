@@ -1,22 +1,31 @@
 package no.hvl.dat109.spill;
 
 
+/**
+ * Definerer en terninger til Yatzy .
+ * 
+ * @author aninehammersborg
+ *
+ */
 import java.util.Random;
 
 public class Terning {
+
+	/**
+	 * Tilfeldig trill for treninger 
+	 */
 	
-	
-	private static int[] Tern;
+	private static int[] Terning;
 	
 	public static int[] trillTerninger() {
 		Random ran = new Random();
 		for(int i = 0; i<5; i++) {
 			
-			Tern[i] = ran.nextInt(6);
+			Terning[i] = ran.nextInt(6);
 
 		
 		}
-		return Tern;
+		return Terning;
 	}
 }
 
