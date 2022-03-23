@@ -9,7 +9,7 @@ import no.hvl.dat109.spill.Spiller;
 import no.hvl.dat109.spill.Yatzy;
 /**
  * 
- * @author aninehammersborg
+ * @author anine & am
  *
  */
 
@@ -22,14 +22,19 @@ public class SpillerDAO {
 	private EntityManager em;
 	
 
-	public List<Spiller>hentAlleSpillere() {
+	public List<Spiller>hentAlleSpillere(Spiller s) {
 		
-		return em.createQuery("select n from Spiller s", Spiller.class);
+	em.presist(s);
 		
 		
 	}
 	
-	public List<Yatzy>hentSpiller(){
-		return em.createQuery("select * from tilstand id", Yatzy.class);
+	public List<Yatzy>hentSpiller(Yatzy y){
+		em.presist(y);
+		
+	
+		
 	}
 }
+
+
