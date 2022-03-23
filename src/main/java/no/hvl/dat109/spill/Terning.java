@@ -1,6 +1,7 @@
 package no.hvl.dat109.spill;
 
 
+import java.util.ArrayList;
 /**
  * Definerer en terninger til Yatzy .
  * 
@@ -18,9 +19,16 @@ public class Terning {
 	
 	
 	public static int[] trillTerninger() {
+		
+		
+		ArrayList<Integer> trill = new ArrayList<Integer>(5);
+		
         int[] kast = new int[5];
         for (int i = 0; i < 5; i++) {
             kast[i] = (int) ((Math.random() * 6) + 1);
+        }
+        for(int j: kast) {
+        	trill.add(j);
         }
         return kast;
     }
@@ -32,9 +40,14 @@ public class Terning {
 	 */
 		
 	public static int[] trillResterendeTerning(int resterende) {
+		ArrayList<Integer> trill = new ArrayList<Integer>(resterende);
+		
         int[] kast = new int[resterende];
         for (int i = 0; i < resterende; i++) {
             kast[i] = (int) ((Math.random() * 6) + 1);
+        }
+        for(int j: kast) {
+        	trill.add(j);
         }
         return kast;
     }
