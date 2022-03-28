@@ -1,5 +1,6 @@
 package no.hvl.dat109.spill;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Yatzy {
@@ -8,8 +9,8 @@ public class Yatzy {
 	private Spiller[] spillere;
 	
 	
-	public Yatzy(int antSpillere, Spiller[] spillere) {
-		this.antSpillere=antSpillere;
+	public Yatzy(Spiller[] spillere) {
+		this.antSpillere=spillere.length;
 		this.spillere=spillere;
 	}
 	
@@ -29,14 +30,27 @@ public class Yatzy {
 	}
 	/**
 	 * @author Birk Johannessen
-	 * gjør alt av spilllogikk
+	 * gjÃ¸r alt av spilllogikk
 	 * @param spiller
-	 * @param hvilken runde det er. altså 1ere,2ere,3ere, par etc etc.1-15
+	 * @param hvilken runde det er. altsÃ¥ 1ere,2ere,3ere, par etc etc.1-15
 	 */
 	public void nesteSpiller(Spiller spiller, int runde) {
-		int[] kopp = Terning.trillTerninger();
-		Utils.
+		ArrayList<Integer> kopp = Terning.trillTerninger();
+		ArrayList<Integer> lagretTerningKast = Utils.omkast(kopp);
+		int nyttKast = 5-lagretTerningKast.size();
+		kopp = Terning.trillResterendeTerning(nyttKast);
+		lagretTerningKast.addAll(Utils.omkast(kopp));
+		nyttKast=5-lagretTerningKast.size();
+		kopp = Terning.trillResterendeTerning(nyttKast);
+		lagretTerningKast.addAll(kopp);
+		
+		int score = sumTabs(lagretTerningKast);
+		
+		spiller.rundeScore(runde, score);
+		
+		
 	}
+
 	public void storeData() {
 		//TODO
 		//might be removed.
