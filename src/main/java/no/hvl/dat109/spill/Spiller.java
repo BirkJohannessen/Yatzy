@@ -1,4 +1,7 @@
 package no.hvl.dat109.spill;
+
+import java.util.ArrayList;
+
   /**
  * 
  * @author anine & am
