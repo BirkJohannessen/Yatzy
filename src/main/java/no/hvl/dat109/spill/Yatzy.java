@@ -21,7 +21,7 @@ public class Yatzy {
 	 * 
 	 */
 	public void Spill() {
-		for(int runde=1;runde<15;runde++) {
+		for(int runde=0;runde<15;runde++) {
 			for(int trekk=0;trekk<antSpillere;trekk++) {
 			Spiller aktivSpiller=spillere[trekk%antSpillere];
 			nesteSpiller(aktivSpiller,runde);
@@ -73,7 +73,7 @@ public class Yatzy {
 		}	
 		int sum = 0;
 		for(int i=0;i<5;i++) {
-			if(lagretTerningKast.get(i)==runde) {
+			if(lagretTerningKast.get(i)==runde+1) {
 				sum+=lagretTerningKast.get(i);
 			}
 		}
