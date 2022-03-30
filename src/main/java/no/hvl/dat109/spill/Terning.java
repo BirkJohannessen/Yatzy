@@ -4,8 +4,8 @@ import java.util.ArrayList;
 /**
  * Definerer en terninger til Yatzy .
  * 
- * @author aninehammersborg
- *
+ * @author a9 og am
+ * @shoutout hesthamarG
  */
 import java.util.Random;
 
