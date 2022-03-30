@@ -25,7 +25,7 @@ public class Spiller {
 	 * @param rundenummer
 	 * @param score
 	 */
-	public Spiller (int rundenummer, int score) {
+	public Spiller (String navn) {
 		this.navn=navn;
 		this.SpillerScore = new ArrayList<Integer>(15);
 	}
@@ -34,7 +34,7 @@ public class Spiller {
 	 * @param rundenummer
 	 * @param score
 	 */
-	public void SetScore(int rundenummer, int score) {
+	public void setScore(int rundenummer, int score) {
 		
 		SpillerScore.set(rundenummer, score);
 		
@@ -43,7 +43,7 @@ public class Spiller {
 	 * Henter scoren
 	 * @return
 	 */
-	public ArrayList<Integer> GetScore() {
+	public ArrayList<Integer> getScore() {
 		return SpillerScore; 
 		
 	}
