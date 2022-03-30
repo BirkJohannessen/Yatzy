@@ -36,31 +36,48 @@ public class Yatzy {
 	 */
 	public void nesteSpiller(Spiller spiller, int runde) {
 		ArrayList<Integer> kopp = Terning.trillTerninger();
-		ArrayList<Integer> lagretTerningKast = Utils.omkast(kopp);
+		ArrayList<Integer> lagretTerningKast = Utils.omKast(kopp);
 		int nyttKast = 5-lagretTerningKast.size();
 		kopp = Terning.trillResterendeTerning(nyttKast);
-		lagretTerningKast.addAll(Utils.omkast(kopp));
+		lagretTerningKast.addAll(Utils.omKast(kopp));
 		nyttKast=5-lagretTerningKast.size();
 		kopp = Terning.trillResterendeTerning(nyttKast);
 		lagretTerningKast.addAll(kopp);
-		
-		int score = sumTabs(lagretTerningKast, runde);
-		
-		spiller.rundeScore(score);
-		
+
 		switch(runde) {
-		case 1:
-			lagretTerningKast.
+			case 0:
+				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+			case 1:
+				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+			case 2:
+				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+			case 3:
+				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+			case 4:
+				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+			case 5:
+				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+			default:
+				spiller.setSpilerScore(runde, 1);
+				
+				
+				
 		}
 		
 		
 	}
 
 	private int sumTabs(ArrayList<Integer> lagretTerningKast, int runde) {
+		if(lagretTerningKast.isEmpty()) {
+			return 0;
+		}	
 		int sum = 0;
 		for(int i=0;i<5;i++) {
-			sum+=lagretTerningKast.get(i);
+			if(lagretTerningKast.get(i)==runde) {
+				sum+=lagretTerningKast.get(i);
+			}
 		}
+		return sum;
 	}
 
 
