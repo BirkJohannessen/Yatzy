@@ -46,19 +46,19 @@ public class Yatzy {
 
 		switch(runde) {
 			case 0:
-				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+				spiller.setScore(runde, sumTabs(lagretTerningKast, runde));
 			case 1:
-				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+				spiller.setScore(runde, sumTabs(lagretTerningKast, runde));
 			case 2:
-				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+				spiller.setScore(runde, sumTabs(lagretTerningKast, runde));
 			case 3:
-				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+				spiller.setScore(runde, sumTabs(lagretTerningKast, runde));
 			case 4:
-				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+				spiller.setScore(runde, sumTabs(lagretTerningKast, runde));
 			case 5:
-				spiller.setSpillerScore(runde, sumTabs(lagretTerningKast, runde));
+				spiller.setScore(runde, sumTabs(lagretTerningKast, runde));
 			default:
-				spiller.setSpilerScore(runde, 1);
+				spiller.setScore(runde, 1);
 				
 				
 				
