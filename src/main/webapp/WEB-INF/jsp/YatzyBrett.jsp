@@ -6,14 +6,14 @@
 <meta charset="ISO-8859-1">
 <title>Yatzy</title>
 <link href="Yatzy.css" rel="stylesheet" type="text/css"/>
-<style type="text/css">
-
-</style>
 </head>
 <body>	
 <div>
 <h1>Yatzy</h1>
 </div>
+	
+	<%-- author Simen Hauge --%>
+	
 	<div class="main">
 		<div class="brett">
 		<table>
