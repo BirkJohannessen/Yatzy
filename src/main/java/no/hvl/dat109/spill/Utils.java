@@ -10,8 +10,7 @@ import java.util.Scanner;
 public class Utils {
 
 	/**
-	 * @author ander Antall spillere
-	 * return returnerer antall spillere
+	 * @author ander Antall spillere return returnerer antall spillere
 	 */
 	public static int antallSpillere() {
 
@@ -51,11 +50,10 @@ public class Utils {
 
 		Scanner ant = new Scanner(System.in);
 		int antall = ant.nextInt();
-		
+
 		Scanner console = new Scanner(System.in);
 
 		System.out.println("Du kaster " + antall + " terninger vekk");
-		
 
 		for (int i = 0; i < antall; i++) {
 
@@ -71,8 +69,7 @@ public class Utils {
 	}
 
 	/**
-	 * Metode for å generere en unik spill id
-	 * return unik spillerid
+	 * Metode for å generere en unik spill id return unik spillerid
 	 */
 	public static int genererSpillId() {
 
@@ -82,6 +79,36 @@ public class Utils {
 		int randomNumber = rand.nextInt(maxNumber) + 1;
 
 		return randomNumber;
+
+	}
+
+	
+	/**
+	 * 
+	 * @param tom tabell av spillere
+	 * @return tabell med opprettet spillere
+	 */
+	
+	public static Spiller[] hentSpillere(Spiller[] spillere) {
+
+		System.out.println("Navnet på alle spillere?");
+
+		Scanner console = new Scanner(System.in);
+
+		Spiller[] tab = new Spiller[spillere.length];
+
+		for (int i = 0; i < tab.length; i++) {
+
+			Spiller s = new Spiller(console.next());
+
+			tab[i] = s;
+
+			System.out.println(tab[i]);
+		}
+
+		console.close();
+
+		return tab;
 
 	}
 
