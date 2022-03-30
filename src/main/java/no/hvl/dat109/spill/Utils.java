@@ -89,17 +89,17 @@ public class Utils {
 	 * @return tabell med opprettet spillere
 	 */
 	
-	public static Spiller[] hentSpillere(Spiller[] spillere) {
-
+	public static Spiller[] hentSpillere() {
+		int ant = antallSpillere();
 		System.out.println("Navnet på alle spillere?");
 
 		Scanner console = new Scanner(System.in);
 
-		Spiller[] tab = new Spiller[spillere.length];
+		Spiller[] tab = new Spiller[ant];
 
 		for (int i = 0; i < tab.length; i++) {
 
-			Spiller s = new Spiller(console.next());
+			Spiller s = new Spiller(console.nextLine());
 
 			tab[i] = s;
 

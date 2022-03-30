@@ -6,10 +6,12 @@ import java.util.Arrays;
 public class MainTest {
 	public static void main(String[] args) {
 
-        ArrayList<Integer> gfg = new ArrayList<Integer>(
-                   Arrays.asList(2,2,3,1));
-
-       Utils.omKast(gfg);
+		//Spiller[] spillere = Utils.hentSpillere();
+		Spiller spiller1 = new spiller("birk");
+		Spiller spiller2 = new spiller("anders-marius");
+		Spiller[] spillere = {spiller1,spiller2};
+		Yatzy yatzy = new Yatzy(spillere);
+		yatzy.spill();
    }
 }
 

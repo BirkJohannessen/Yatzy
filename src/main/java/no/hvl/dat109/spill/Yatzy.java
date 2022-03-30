@@ -20,7 +20,7 @@ public class Yatzy {
 	 * 
 	 * 
 	 */
-	public void Spill() {
+	public void spill() {
 		for(int runde=0;runde<15;runde++) {
 			for(int trekk=0;trekk<antSpillere;trekk++) {
 			Spiller aktivSpiller=spillere[trekk%antSpillere];
