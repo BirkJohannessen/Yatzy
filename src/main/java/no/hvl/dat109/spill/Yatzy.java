@@ -44,12 +44,25 @@ public class Yatzy {
 		kopp = Terning.trillResterendeTerning(nyttKast);
 		lagretTerningKast.addAll(kopp);
 		
-		int score = sumTabs(lagretTerningKast);
+		int score = sumTabs(lagretTerningKast, runde);
 		
-		spiller.rundeScore(runde, score);
+		spiller.rundeScore(score);
+		
+		switch(runde) {
+		case 1:
+			lagretTerningKast.
+		}
 		
 		
 	}
+
+	private int sumTabs(ArrayList<Integer> lagretTerningKast, int runde) {
+		int sum = 0;
+		for(int i=0;i<5;i++) {
+			sum+=lagretTerningKast.get(i);
+		}
+	}
+
 
 	public void storeData() {
 		//TODO
