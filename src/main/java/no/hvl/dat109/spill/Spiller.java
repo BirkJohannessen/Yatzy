@@ -48,6 +48,10 @@ public class Spiller {
 		
 	}
 	
+	@Override
+	public String toString() {
+		return "Spiller [spillerScore=" + spillerScore + 
+				", navn=" + navn + "]";
 	}
 		
 
