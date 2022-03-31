@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class Utils {
 
 	/**
-	 * @author ander Antall spillere return returnerer antall spillere
+	 * @author ander 
+	 * Antall spillere return returnerer antall spillere
 	 */
 	public static int antallSpillere() {
 
@@ -30,7 +31,6 @@ public class Utils {
 			System.out.println("Antall spillere: " + ant);
 		}
 
-		sc.close();
 		return ant;
 	}
 
@@ -41,31 +41,29 @@ public class Utils {
 	 */
 	public static ArrayList<Integer> omKast(ArrayList<Integer> kopp) {
 
-		kopp.forEach(x -> System.out.print("[" + x + "]"));
+		System.out.println("Du kastet: "+kopp.toString());
 
-		System.out.println("\n");
+		System.out.println("Hvor mange terninger vil du kaste på nytt?");
 
-		System.out.println("Hvor mange terninger hvil du kaste?");
-		System.out.println("Hvilken terninger vil du kaste? (i index)");
 
-		Scanner ant = new Scanner(System.in);
-		int antall = ant.nextInt();
+		Scanner sc = new Scanner(System.in);
+		int antall = Integer.parseInt(sc.nextLine());
+		System.out.println("Du kaster " + antall + " terninger vekk!");
 
-		Scanner console = new Scanner(System.in);
-
-		System.out.println("Du kaster " + antall + " terninger vekk");
-
-		for (int i = 0; i < antall; i++) {
-
-			kopp.remove(console.nextInt());
-
-			kopp.forEach(x -> System.out.print("[" + x + "]"));
+		if(antall>=kopp.size()) {
+			return new ArrayList<>();
+		}else if(antall>0&&antall<kopp.size()) {
+			System.out.println("Hvilken terninger vil du kaste? (i index)");
+			for (int i = 0; i < antall; i++) {
+				System.out.println(kopp.toString());
+				kopp.remove(sc.nextInt());
+			}
+			System.out.println("lagret terningene: "+kopp);
 
 		}
-
-		ArrayList<Integer> nyKopp = kopp;
-
-		return nyKopp;
+		return kopp;
+		
+		
 	}
 
 	/**
@@ -74,7 +72,7 @@ public class Utils {
 	public static int genererSpillId() {
 
 		Random rand = new Random();
-		int maxNumber = 10;
+		int maxNumber = 10000000;
 
 		int randomNumber = rand.nextInt(maxNumber) + 1;
 
@@ -91,24 +89,19 @@ public class Utils {
 	
 	public static Spiller[] hentSpillere() {
 		int ant = antallSpillere();
-		System.out.println("Navnet pÃ¥ alle spillere?");
 
 		Scanner console = new Scanner(System.in);
 
-		Spiller[] tab = new Spiller[ant];
+		Spiller[] spillere = new Spiller[ant];
 
-		for (int i = 0; i < tab.length; i++) {
+		for (int i = 0; i < spillere.length; i++) {
+			System.out.println("Skriv navnet til spiller"+(i+1));
+			spillere[i] = new Spiller(console.nextLine());
 
-			Spiller s = new Spiller(console.nextLine());
-
-			tab[i] = s;
-
-			System.out.println(tab[i]);
 		}
 
-		console.close();
 
-		return tab;
+		return spillere;
 
 	}
 

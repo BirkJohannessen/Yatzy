@@ -13,21 +13,17 @@ public class Spiller {
 	/**
 	 * Definerer variablene 
 	 */
-	private ArrayList<Integer> SpillerScore;
-	
-	private int rundenummer;
-	private int score;
+	private ArrayList<Integer> spillerScore;
 	private String navn;
-	
 	
 	/**
 	 * Konstruktør 
-	 * @param rundenummer
-	 * @param score
+	 * 
+	 * 
 	 */
-	public Spiller (String navn) {
-		this.navn=navn;
-		this.SpillerScore = new ArrayList<Integer>(15);
+	public Spiller(String navn) {
+		this.setNavn(navn);
+		this.spillerScore = new ArrayList<Integer>(15);
 	}
 	/**
 	 * Setter scoren
@@ -35,17 +31,33 @@ public class Spiller {
 	 * @param score
 	 */
 	public void setScore(int rundenummer, int score) {
-		
-		SpillerScore.set(rundenummer, score);
-		
+		spillerScore.add(rundenummer, score);
 	}
 	/**
-	 * Henter scoren
+	 * henter en score gitt hvilken runde
+	 * 
+	 */
+	public String getScore(int index) {
+		if(index >= spillerScore.size() || index < 0){
+			  return "";
+			}else{
+			 return spillerScore.get(index)+"";
+			}
+	}
+	
+	/**
+	 * Henter score tabellen
 	 * @return
 	 */
-	public ArrayList<Integer> getScore() {
-		return SpillerScore; 
+	public ArrayList<Integer> getSpillerScore() {
+		return spillerScore; 
 		
+	}
+	public String getNavn() {
+		return navn;
+	}
+	public void setNavn(String navn) {
+		this.navn = navn;
 	}
 	
 	@Override

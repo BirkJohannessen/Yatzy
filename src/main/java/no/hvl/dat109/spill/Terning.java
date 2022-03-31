@@ -41,7 +41,7 @@ public class Terning {
 
 		if (resterende == 0) {
 
-			terningVerdi = null;
+			terningVerdi = new ArrayList<Integer>();
 		}
 
 		else {
