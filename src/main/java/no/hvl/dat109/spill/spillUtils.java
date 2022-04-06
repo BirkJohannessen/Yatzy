@@ -162,9 +162,60 @@ public class spillUtils {
 
 		return 50;
 	}
-
-
 	
+	/**
+	 * Metoden tar inn en spiller og finner summen til de 6 første trinnene i yatzhee.
+	 * @param Spiller spiller
+	 * @return int
+	 */
+	public static int sum(Spiller spiller) {
+		
+		ArrayList<Integer> tabell = spiller.getSpillerScore();
+		int sum = 0;
+		
+		for(int i = 0; i<6; i++) {
+			sum += tabell.get(i);
+		}
+		return sum;
+		
+	}
+	
+	/**
+	 * Metoden tar inn en spiller og finner totalsummen yatzhee.
+	 * @param Spiller spiller
+	 * @return int
+	 */
+	public static int totalScore(Spiller spiller) {
+		
+		ArrayList<Integer> tabell = spiller.getSpillerScore();
+		int sum = 0;
+		
+		for(int i = 0; i<15; i++) {
+			sum += tabell.get(i);
+		}
+		return sum;
+		
+	}
+	
+	/**
+	 * Metoden finner spilleren med høyest score og returnerer den.
+	 * @param Spiller[] spillere
+	 * @return Spiller
+	 */
+	public static Spiller finneVinner(Spiller[] spillere) {
+		
+		Spiller vinner = null;
+		int score = 0;
+		for(Spiller i : spillere) {
+			ArrayList<Integer> tabell = i.getSpillerScore();
+			if(tabell.get(15) <= score) {
+				vinner = i;
+				score = tabell.get(15);
+			}
+			
+		}
+		return vinner;
+	}
 	
 
 }
