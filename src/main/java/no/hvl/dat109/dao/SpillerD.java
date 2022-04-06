@@ -13,6 +13,7 @@ import javax.persistence.Table;
  *
  */
 
+
 @Entity
 @Table(schema = "Dat109_prosjekt")
 public class SpillerD {
@@ -21,10 +22,20 @@ public class SpillerD {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    
     private String brukernavn;
     private String passord;
     private String navn;
     private String epost;
+    
+    /**
+     * Konstruktør
+     * @param id
+     * @param brukernavn
+     * @param passord
+     * @param navn
+     * @param epost
+     */
 
     public SpillerD(int id, String brukernavn, String passord, String navn, String epost) {
         this.id = id;
