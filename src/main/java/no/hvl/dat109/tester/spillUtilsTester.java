@@ -18,6 +18,8 @@ public class spillUtilsTester {
 	ArrayList<Integer> stemmerIkke = new ArrayList<>();
 	ArrayList<Integer> stemmer = new ArrayList<>();
 	ArrayList<Integer> litenStraight = new ArrayList<>();
+	ArrayList<Integer> randomLitenStraight = new ArrayList<>();
+	ArrayList<Integer> randomStorStraight = new ArrayList<>();
 	ArrayList<Integer> storStraight = new ArrayList<>();
 	ArrayList<Integer> Hus = new ArrayList<>();
 	ArrayList<Integer> AlleLike = new ArrayList<>();
@@ -42,11 +44,23 @@ public class spillUtilsTester {
 		litenStraight.add(3);
 		litenStraight.add(4);
 		
+		randomLitenStraight.add(2);
+		randomLitenStraight.add(1);
+		randomLitenStraight.add(3);
+		randomLitenStraight.add(5);
+		randomLitenStraight.add(4);
+		
 		storStraight.add(3);
 		storStraight.add(2);
 		storStraight.add(5);
 		storStraight.add(6);
 		storStraight.add(4);
+		
+		randomStorStraight.add(3);
+		randomStorStraight.add(6);
+		randomStorStraight.add(2);
+		randomStorStraight.add(4);
+		randomStorStraight.add(5);
 		
 		Hus.add(2);
 		Hus.add(2);
@@ -85,6 +99,7 @@ public class spillUtilsTester {
 	public void testLitenStraight() {
 		assertEquals(15, spillUtils.LitenStraight(litenStraight));
 		assertEquals(0, spillUtils.LitenStraight(stemmerIkke));
+		assertEquals(15, spillUtils.LitenStraight(randomLitenStraight));
 		assertEquals(0, spillUtils.LitenStraight(Hus));
 	}
 
@@ -92,6 +107,7 @@ public class spillUtilsTester {
 	public void testStorStraight() {
 		assertEquals(20, spillUtils.StorStraight(storStraight));
 		assertEquals(0, spillUtils.StorStraight(stemmerIkke));
+		assertEquals(20, spillUtils.StorStraight(randomStorStraight));
 		assertEquals(0, spillUtils.StorStraight(Hus));
 	}
 
