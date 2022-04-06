@@ -7,68 +7,6 @@ import java.util.Arrays;
 
 public class spillUtils {
 	
-	public static void main(String[] args) {
-		
-		
-		ArrayList<Integer> stemmerIkke = new ArrayList<>();
-		stemmerIkke.add(1);
-		stemmerIkke.add(5);
-		stemmerIkke.add(5);
-		stemmerIkke.add(2);
-		stemmerIkke.add(3);
-		
-		ArrayList<Integer> stemmer = new ArrayList<>();
-		stemmer.add(1);
-		stemmer.add(5);
-		stemmer.add(5);
-		stemmer.add(5);
-		stemmer.add(5);
-		
-		ArrayList<Integer> litenStraight = new ArrayList<>();
-		litenStraight.add(1);
-		litenStraight.add(2);
-		litenStraight.add(5);
-		litenStraight.add(3);
-		litenStraight.add(4);
-		
-		ArrayList<Integer> Hus = new ArrayList<>();
-		Hus.add(2);
-		Hus.add(2);
-		Hus.add(2);
-		Hus.add(5);
-		Hus.add(5);
-		
-		ArrayList<Integer> AlleLike = new ArrayList<>();
-		AlleLike.add(4);
-		AlleLike.add(4);
-		AlleLike.add(4);
-		AlleLike.add(4);
-		AlleLike.add(4);
-		
-		System.out.println(TreLike(stemmerIkke));
-		System.out.println(TreLike(stemmer));
-		
-		System.out.println(FireLike(stemmerIkke));
-		System.out.println(FireLike(stemmer));
-		
-		
-		//LitenStraight
-		System.out.println(LitenStraight(stemmerIkke));
-		System.out.println(LitenStraight(litenStraight));
-		
-		//Sjanse
-		System.out.println(Sjanse(stemmerIkke));
-		
-		
-		// Hus
-		System.out.println(Hus(stemmerIkke));
-		System.out.println(Hus(Hus));
-		
-		//yaty
-		System.out.println(yatzhee(AlleLike));
-		System.out.println(yatzhee(stemmerIkke));
-		
-	}
 	
 	/**
 	 * Sjekker om listen inneholder 3 like.
@@ -213,7 +151,7 @@ public class spillUtils {
 	 * @return int
 	 */
 	
-	public static int yatzhee(ArrayList<Integer> Liste) {
+	public static int Yatzhee(ArrayList<Integer> Liste) {
 		
 		
 		for(int i : Liste) {
