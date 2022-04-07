@@ -23,37 +23,41 @@ public class Yatzy {
 	 * 
 	 */
 	public void spill() {
-		for(int runde=0;runde<15;runde++) {
+		for(int runde=0;runde<16;runde++) {
 			for(int trekk=0;trekk<antSpillere;trekk++) {
 			Spiller aktivSpiller=spillere[trekk%antSpillere];
 			System.out.println(aktivSpiller.getNavn()+"'s tur!");
 			nesteSpiller(aktivSpiller,runde);
 			}
 		Tekstgrensesnitt.printSpillTabell(spillere); //print info
-
 		}
-		System.out.println("spillet er slutt!");
+		System.out.println("spillet er slutt! ");//+spillUtils.finneVinner(spillere).getNavn()+" vant!");
 	}
 	/**
 	 * @author Birk Johannessen
-	 * gjør alt av spilllogikk
+	 * gjÃ¸r alt av spilllogikk
 	 * @param spiller
-	 * @param hvilken runde det er. altså 1ere,2ere,3ere, par etc etc.1-15
+	 * @param hvilken runde det er. altsÃ¥ 1ere,2ere,3ere, par etc etc.1-15
 	 */
 	public void nesteSpiller(Spiller spiller, int runde) {
-		ArrayList<Integer> kopp = Terning.trillTerninger();
-		ArrayList<Integer> lagretTerningKast = Utils.omKast(kopp);
+		ArrayList<Integer> kopp;
+		ArrayList<Integer> lagretTerningKast=null;
 		
-		int nyttKast = 5-lagretTerningKast.size();
-		kopp = Terning.trillResterendeTerning(nyttKast);
-
-		lagretTerningKast.addAll(Utils.omKast(kopp));
-
-		nyttKast=5-lagretTerningKast.size();
-		kopp = Terning.trillResterendeTerning(nyttKast);
-		lagretTerningKast.addAll(kopp);
+		if(runde!=6&&runde!=15) {
+			kopp = Terning.trillTerninger();
+			lagretTerningKast = Utils.omKast(kopp);
+			int nyttKast = 5-lagretTerningKast.size();
+			kopp = Terning.trillResterendeTerning(nyttKast);
+	
+			lagretTerningKast.addAll(Utils.omKast(kopp));
+			
+			nyttKast=5-lagretTerningKast.size();
+			kopp = Terning.trillResterendeTerning(nyttKast);
+			lagretTerningKast.addAll(kopp);
+			
+			System.out.println("ditt endelige kast: "+lagretTerningKast.toString());
+		}
 		
-		System.out.println("ditt endelige kast: "+lagretTerningKast.toString()); 
 
 		switch(runde) {
 			case 0:
@@ -74,8 +78,38 @@ public class Yatzy {
 			case 5:
 				spiller.setScore(runde, sumTabs(lagretTerningKast, runde));
 				break;
+			case 6:
+				spiller.setScore(runde, spillUtils.sum(spiller));
+				break;
+			case 7:
+				spiller.setScore(runde, 12);
+				break;
+			case 8:
+				spiller.setScore(runde, spillUtils.TreLike(lagretTerningKast));
+				break;
+			case 9:
+				spiller.setScore(runde, spillUtils.FireLike(lagretTerningKast));
+				break;
+			case 10:
+				spiller.setScore(runde, spillUtils.Hus(lagretTerningKast));
+				break;
+			case 11:
+				spiller.setScore(runde, spillUtils.LitenStraight(lagretTerningKast));
+				break;
+			case 12:
+				spiller.setScore(runde, spillUtils.StorStraight(lagretTerningKast));
+				break;
+			case 13:
+				spiller.setScore(runde, spillUtils.Sjanse(lagretTerningKast));
+				break;
+			case 14:
+				spiller.setScore(runde, spillUtils.Yatzhee(lagretTerningKast));
+				break;
+			case 15:
+				spiller.setScore(runde, spillUtils.totalScore(spiller));
+				break;
 			default:
-				spiller.setScore(runde, 1);
+				System.out.println("noe gikk galt");
 				break;
 		}
 		
