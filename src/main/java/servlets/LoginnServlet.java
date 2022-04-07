@@ -1,4 +1,4 @@
-package no.hvl.dat109.Servlet;
+package servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

@@ -12,8 +12,10 @@ version="2.2">
         <class>no.hvl.dat109.dao.SpillerD</class>
         <class>no.hvl.dat109.spill.Main</class>
         <class>no.hvl.dat109.spill.Spiller</class>
+        <class>no.hvl.dat109.spill.spillUtils</class>
         <class>no.hvl.dat109.spill.Terning</class>
-        <class>no.hvl.dat109.spill.Yatze</class>
+        <class>no.hvl.dat109.spill.Utils</class>
+        <class>no.hvl.dat109.spill.Yatzy</class>
         <class>no.hvl.dat109.web.Tekstgrensesnitt</class>
 
     <properties>
