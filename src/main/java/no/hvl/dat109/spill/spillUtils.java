@@ -179,6 +179,19 @@ public class spillUtils {
 		return sum;
 		
 	}
+	/**
+	 * Metoden tar inn en spiller og sjekker om summen av de første 6 rundene er 50 eller mer for å gi bonuspoeng.
+	 * Dersom spilleren har det returnerer metoden 50, ellers returnerer metoden 0.
+	 * @param Spiller spiller
+	 * @return int
+	 */
+	public static int bonus(Spiller spiller) {
+		ArrayList<Integer> tabell = spiller.getSpillerScore();
+		if(tabell.get(6)>=50) 
+			return 50;
+		return 0;
+		
+	}
 	
 	/**
 	 * Metoden tar inn en spiller og finner totalsummen yatzhee.

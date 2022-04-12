@@ -33,22 +33,22 @@ public class spillUtilsTester {
 	@Before
 	public void setUp() throws Exception {
 		
-		spiller1.setScore(0, 3);
-		spiller1.setScore(1, 6);
-		spiller1.setScore(2, 6);
-		spiller1.setScore(3, 0);
-		spiller1.setScore(4, 10);
-		spiller1.setScore(5, 18);
-		spiller1.setScore(6, 43);
-		spiller1.setScore(7, 4);
-		spiller1.setScore(8, 12);
-		spiller1.setScore(9, 0);
-		spiller1.setScore(10, 10);
-		spiller1.setScore(11, 18);
-		spiller1.setScore(12, 3);
-		spiller1.setScore(13, 0);
-		spiller1.setScore(14, 10);
-		spiller1.setScore(15, 143);
+		spiller1.setScore(0, 3);	//Enere
+		spiller1.setScore(1, 6);	//Toere
+		spiller1.setScore(2, 6);	//Treere
+		spiller1.setScore(3, 8);	//Firere
+		spiller1.setScore(4, 10);	//Femmere
+		spiller1.setScore(5, 18);	//Seksere
+		spiller1.setScore(6, 51);	//Sum
+		spiller1.setScore(7, 4);	//Bonus	
+		spiller1.setScore(8, 12);	//Tre Like
+		spiller1.setScore(9, 0);	//Fire like
+		spiller1.setScore(10, 10);	//Hus
+		spiller1.setScore(11, 18);	//Lite straight
+		spiller1.setScore(12, 3);	//Stor straight
+		spiller1.setScore(13, 0);	//Sjanse
+		spiller1.setScore(14, 10);	//Yatzy
+		spiller1.setScore(15, 143);	//Score
 		
 		
 		
@@ -205,13 +205,13 @@ public class spillUtilsTester {
 	}
 	@Test
 	public void testSum() {
-		assertEquals(43, spillUtils.sum(spiller1));
+		assertEquals(51, spillUtils.sum(spiller1));
 		assertEquals(37, spillUtils.sum(spiller2));
 		assertEquals(30, spillUtils.sum(spiller3));
 	}
 	@Test
 	public void totalScore() {
-		assertEquals(143, spillUtils.totalScore(spiller1));
+		assertEquals(159, spillUtils.totalScore(spiller1));
 		assertEquals(131, spillUtils.totalScore(spiller2));
 		assertEquals(108, spillUtils.totalScore(spiller3));
 	}
@@ -220,6 +220,12 @@ public class spillUtilsTester {
 		assertEquals(spiller1, spillUtils.finneVinner(liste1));
 		assertEquals(spiller2, spillUtils.finneVinner(liste2));
 		assertEquals(spiller3, spillUtils.finneVinner(liste3));
+	}
+	@Test
+	public void bodnus() {
+		assertEquals(50, spillUtils.bonus(spiller1));
+		assertEquals(0, spillUtils.bonus(spiller2));
+		assertEquals(0, spillUtils.bonus(spiller3));
 	}
 
 }
