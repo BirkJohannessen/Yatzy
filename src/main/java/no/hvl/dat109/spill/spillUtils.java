@@ -208,7 +208,7 @@ public class spillUtils {
 		int score = 0;
 		for(Spiller i : spillere) {
 			ArrayList<Integer> tabell = i.getSpillerScore();
-			if(tabell.get(15) <= score) {
+			if(tabell.get(15) >= score) {
 				vinner = i;
 				score = tabell.get(15);
 			}

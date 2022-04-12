@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import no.hvl.dat109.spill.Spiller;
 import no.hvl.dat109.spill.spillUtils;
 
 public class spillUtilsTester {
@@ -23,8 +24,70 @@ public class spillUtilsTester {
 	ArrayList<Integer> storStraight = new ArrayList<>();
 	ArrayList<Integer> Hus = new ArrayList<>();
 	ArrayList<Integer> AlleLike = new ArrayList<>();
+	Spiller spiller1 = new Spiller("Andreas");
+	Spiller spiller2 = new Spiller("Tor");
+	Spiller spiller3 = new Spiller("Ole");
+	Spiller[] liste1 = new Spiller[3];
+	Spiller[] liste2 = new Spiller[2];
+	Spiller[] liste3 = new Spiller[1];
 	@Before
 	public void setUp() throws Exception {
+		
+		spiller1.setScore(0, 3);
+		spiller1.setScore(1, 6);
+		spiller1.setScore(2, 6);
+		spiller1.setScore(3, 0);
+		spiller1.setScore(4, 10);
+		spiller1.setScore(5, 18);
+		spiller1.setScore(6, 43);
+		spiller1.setScore(7, 4);
+		spiller1.setScore(8, 12);
+		spiller1.setScore(9, 0);
+		spiller1.setScore(10, 10);
+		spiller1.setScore(11, 18);
+		spiller1.setScore(12, 3);
+		spiller1.setScore(13, 0);
+		spiller1.setScore(14, 10);
+		spiller1.setScore(15, 143);
+		
+		
+		
+		spiller2.setScore(0, 2);
+		spiller2.setScore(1, 4);
+		spiller2.setScore(2, 3);
+		spiller2.setScore(3, 0);
+		spiller2.setScore(4, 10);
+		spiller2.setScore(5, 18);
+		spiller2.setScore(6, 37);
+		spiller2.setScore(7, 4);
+		spiller2.setScore(8, 12);
+		spiller2.setScore(9, 0);
+		spiller2.setScore(10, 10);
+		spiller2.setScore(11, 18);
+		spiller2.setScore(12, 3);
+		spiller2.setScore(13, 0);
+		spiller2.setScore(14, 10);
+		spiller2.setScore(15, 131);
+		
+		
+
+		spiller3.setScore(0, 4);
+		spiller3.setScore(1, 2);
+		spiller3.setScore(2, 3);
+		spiller3.setScore(3, 4);
+		spiller3.setScore(4, 5);
+		spiller3.setScore(5, 12);
+		spiller3.setScore(6, 30);
+		spiller3.setScore(7, 4);
+		spiller3.setScore(8, 3);
+		spiller3.setScore(9, 0);
+		spiller3.setScore(10, 10);
+		spiller3.setScore(11, 18);
+		spiller3.setScore(12, 3);
+		spiller3.setScore(13, 0);
+		spiller3.setScore(14, 10);
+		spiller3.setScore(15, 108);
+	
 		
 		stemmerIkke.add(1);
 		stemmerIkke.add(5);
@@ -73,6 +136,15 @@ public class spillUtilsTester {
 		AlleLike.add(4);
 		AlleLike.add(4);
 		AlleLike.add(4);
+		
+		liste1[0] = spiller3;
+		liste1[1] = spiller2;
+		liste1[2] = spiller1;
+		
+		liste2[0] = spiller2;
+		liste2[1] = spiller3;
+		
+		liste3[0] = spiller3;
 	}
 
 	@After
@@ -130,6 +202,24 @@ public class spillUtilsTester {
 		assertEquals(0, spillUtils.Yatzhee(litenStraight));
 		assertEquals(50, spillUtils.Yatzhee(AlleLike));
 		assertEquals(0, spillUtils.Yatzhee(Hus));
+	}
+	@Test
+	public void testSum() {
+		assertEquals(43, spillUtils.sum(spiller1));
+		assertEquals(37, spillUtils.sum(spiller2));
+		assertEquals(30, spillUtils.sum(spiller3));
+	}
+	@Test
+	public void totalScore() {
+		assertEquals(143, spillUtils.totalScore(spiller1));
+		assertEquals(131, spillUtils.totalScore(spiller2));
+		assertEquals(108, spillUtils.totalScore(spiller3));
+	}
+	@Test
+	public void finneSpiller() {
+		assertEquals(spiller1, spillUtils.finneVinner(liste1));
+		assertEquals(spiller2, spillUtils.finneVinner(liste2));
+		assertEquals(spiller3, spillUtils.finneVinner(liste3));
 	}
 
 }
