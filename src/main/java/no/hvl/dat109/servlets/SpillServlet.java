@@ -14,7 +14,20 @@ import no.hvl.dat109.BackendUtils.LoginUtil;
 import no.hvl.dat109.dao.SpillerDAO;
 import no.hvl.dat109.spill.Spiller;
 import no.hvl.dat109.spill.Terning;
-import spillWeb.YatzyWeb;
+import no.hvl.dat109.spillWeb.YatzyWeb;
+
+/**
+ * 
+ * @author Birk Johannessen
+ *
+ *Spillets gang!
+ *spillServlet kommer med en spillID som ligger i get requesten. dette blir brukt mot databasen for å avgjøre hvilket spill som spilles
+ *
+ *spilleren blir sendt til en venteside frem til det er hans tur.
+ *
+ *når det er spillerens tur er det endel spilllogikk som blir sendt gjennom post opp mot database for å summere en runde.
+ */
+
 
 @WebServlet("/SpillServlet")
 public class SpillServlet extends HttpServlet {
@@ -28,7 +41,7 @@ public class SpillServlet extends HttpServlet {
 			response.sendRedirect("LoginnServlet?f1=timeout");
 		}else {
 			String spillID = request.getParameter("spillID");
-			if(YatzyWeb.aktuellSpillersTur(spillerDAO, spillID).equals(request.getSession().getAttribute("mobil"))) { //TODO riktig skjekk av riktig spiller
+			if(YatzyWeb.aktuellSpillersTur(spillerDAO, spillID).equals(request.getSession().getAttribute("mobil"))) {
 				
 				if(request.getSession().getAttribute("kastNr")==null||(int)request.getSession().getAttribute("kastNr")==0) {
 					request.getSession().setAttribute("kastNr", 0);
@@ -37,8 +50,8 @@ public class SpillServlet extends HttpServlet {
 				}
 				request.getRequestDispatcher("WEB-INF/jsp/Spill.jsp").forward(request, response);
 			}else {
-				//han må vente til neste spiller er ferdig
-				request.getRequestDispatcher("WEB-INF/jsp/SpillVent.jsp").forward(request, response); //TODO - lag spillerventer som viser tabell og forje kast
+				//han må vente til neste spiller er ferdig Kanskje fint med tabell?
+				request.getRequestDispatcher("WEB-INF/jsp/SpillVent.jsp").forward(request, response);
 			}
 		}
 	}
@@ -58,7 +71,7 @@ public class SpillServlet extends HttpServlet {
 				request.getSession().setAttribute("kastNr", kastNr);
 				response.sendRedirect("SpillServlet?spillID="+spillID);
 			}else {
-				int runde = YatzyWeb.getRunde(spillerDAO.hentSpillTilstand(spillID));
+				int runde = YatzyWeb.getRunde(spillerDAO, spillID);
 				spillerDAO.setScore(spillID, runde, YatzyWeb.getSum(runde,kopp), (String)request.getSession().getAttribute("mobil"));
 				request.getSession().setAttribute("kastNr", 0);
 				request.getSession().setAttribute("kopp", kopp);

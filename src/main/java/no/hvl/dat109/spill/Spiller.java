@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * 
  * @author anine & am
  *
+ *ment for å brukes til tekst/konsoll løsningen (beta)
  */
 
 public class Spiller {

@@ -1,7 +1,12 @@
 package no.hvl.dat109.brukergrensesnitt;
 
 import no.hvl.dat109.spill.Spiller;
-
+/**
+ * 
+ * @author Birk Johannessen
+ * 
+ * brukes kun i tekst/konsoll/beta spillet
+ */
 public class Tekstgrensesnitt {
 
 	

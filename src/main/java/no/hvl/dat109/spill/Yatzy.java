@@ -5,6 +5,13 @@ import java.util.List;
 
 import no.hvl.dat109.brukergrensesnitt.Tekstgrensesnitt;
 
+/**
+ * 
+ * @author Birk Johannessen
+ * 
+ * løsningen på yatzys spill logikk ment for konsoll/tekst beta løsning
+ *
+ */
 public class Yatzy {
 	
 	private int antSpillere;

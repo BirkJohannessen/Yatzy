@@ -12,6 +12,12 @@ import org.junit.Test;
 import no.hvl.dat109.spill.Spiller;
 import no.hvl.dat109.spill.spillUtils;
 
+
+/**
+ * 
+ * tester
+ *
+ */
 public class spillUtilsTester {
 
 

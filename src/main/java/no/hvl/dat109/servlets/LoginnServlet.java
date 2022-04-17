@@ -15,7 +15,10 @@ import no.hvl.dat109.dao.SpillerDAO;
 
 
 /**
- * Servlet implementation class LoginnServlet
+ * @author Birk Johannessen
+ * 
+ * logger en spiller på og setter en cookie.
+ * hvis riktig passord/brukernavn blir spilelren sendt til spill menyen
  */
 @WebServlet("/LoginnServlet")
 public class LoginnServlet extends HttpServlet {

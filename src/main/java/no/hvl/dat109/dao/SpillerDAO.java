@@ -10,51 +10,109 @@ import javax.persistence.PersistenceContext;
  * 
  * @author anine & am
  *
+ * sporringer opp mot database
  */
 @Stateless
 public class SpillerDAO {
-	
-	/**
-	 * Laget en EntityManager for spillertabellen i databasen
-	 */
 	@PersistenceContext(name ="spillerDB")
 	private EntityManager em;
 	
 
 	/**
 	 * 
-	 * @param s
-	 * @return en spørring som henter alle spillere fra databasen
+	 * 
+	 * @return liste av spillere
+	 * 
+	 *  henter mobil til alle spillere og legger i List
 	 */
 	public List<String>hentAlleSpillere() {
 		//TODO - henter mobil til alle spillere og legger i List
 		return null;
 		
 	}
-
+	/**
+	 * 
+	 * @param spillID
+	 * @return liste av spillere
+	 * 
+	 * henter mobil til alle spillere gitt et spillID og legger i List
+	 */
 	public List<String> hentSpillere(String spillID){
-		//TODO - henter mobil til alle spillere og legger i List
+		//TODO - henter mobil til alle spillere gitt et spillID og legger i List
 
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @param spillID
+	 * @return liste av spillTilstand
+	 * 
+	 * henter spiller tabeller i DB og lager en tabell som ser slik ut:
+	 * 
+	 * [0]spiller1 Runde1
+	 * [1]spiller2 Runde1
+	 * [2]spiller1 Runde2
+	 *  .....
+	 * [29]spiller2 Runde15
+	 * 
+	 * 
+	 */
 	public ArrayList<Integer> hentSpillTilstand(String spillID){
 		//TODO
 		//skal levere IHT DB modellen
 		return null;
 	}
+	/**
+	 * 
+	 * @param spillID
+	 * @param runde
+	 * @param sum
+	 * @param mobil
+	 * 
+	 * tar et spillID og lagrer en sum for en runde i databasen.
+	 */
 	public void setScore(String spillID, int runde, int sum, String mobil) {
 		//TODO
 		//lagrer en verdi i DB
 	}
-
+	
+	/**
+	 * 
+	 * @param mobil
+	 * @return String passord
+	 * 
+	 * henter et passord gitt en spillers mobil
+	 */
 	public String getPassord(String mobil) {
 		//TODO - henter passordet til en bruker
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param mobil
+	 * @return
+	 * 
+	 * ser om en spiller finnes i databasen
+	 */
 	public boolean finnes(String mobil) {
 		//TODO - ser om en spiller finns gitt et mobilnummer.
 		return false;
+	}
+
+	/**
+	 * 
+	 * @param spillere
+	 * @return String spillID
+	 * 
+	 * lager et nytt spill i databasen med 1-6 spillere
+	 */
+	public String initSpill(String[] spillere) {
+		//TODO lager plass i DB til et nytt spill
+		
+		//returnerer et generert spillID
+		return null;
 	}
 }
 

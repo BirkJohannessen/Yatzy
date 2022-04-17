@@ -1,14 +1,17 @@
 package no.hvl.dat109.spill;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+
 /**
  * Definerer en terninger til Yatzy .
  * 
  * @author a9 og am
  * @shoutout hesthamarG
+ * 
+ * brukes både i WEB og tekst spillet.
  */
-import java.util.Random;
-
 public class Terning {
 
 	/**

@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 /**
  * @Author Anders Lerang Utils klasse
+ * 
+ * Utils klasse ment for tekst/konsoll beta løsning
+ * brukes IKKE i web
  */
 public class Utils {
 

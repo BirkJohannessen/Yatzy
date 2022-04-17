@@ -1,4 +1,4 @@
-package spillWeb;
+package no.hvl.dat109.spillWeb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +10,36 @@ import no.hvl.dat109.spill.Spiller;
 import no.hvl.dat109.spill.Terning;
 import no.hvl.dat109.spill.spillUtils;
 
+	/**
+	 * 
+	 * @author BirkJohannessen
+	 * 
+	 * Spill klasse med metoder for spillet skal funke opp mot web
+	 *
+	 */
 public class YatzyWeb {
 	
-	public static int getRunde(ArrayList<Integer> spillTilstand) {
-		//TODO
+	/**
+	 * @author BirkJohannessen
+	 * @param spillTilstand fra DAO
+	 * @return int runde
+	 * 
+	 * Metoden skal ta spilletsTilstand og finne ut hvilken runde vi har kommet til.
+	 */
+	public static int getRunde(SpillerDAO spillerDAO, String spillID) {
+		ArrayList<Integer> spill = spillerDAO.hentSpillTilstand(spillID);
+		List<String> spillerTab = spillerDAO.hentSpillere(spillID);
 		return 0;
 	}
-
+	
+	/**
+	 * @author Birk Johannessen
+	 * @param spillerDAO
+	 * @param spillID
+	 * @return String mobil
+	 * 
+	 * finner ut fra spillets tilstand hvilken spillers tur
+	 */
 	public static String aktuellSpillersTur(SpillerDAO spillerDAO, String spillID) {
 		ArrayList<Integer> spill = spillerDAO.hentSpillTilstand(spillID);
 		List<String> spillerTab = spillerDAO.hentSpillere(spillID);
@@ -25,6 +48,15 @@ public class YatzyWeb {
 		return null;
 	}
 
+	/**
+	 * @author Birk Johannessen
+	 * @param request
+	 * @param kopp
+	 * @return oppdatertKopp
+	 * 
+	 * Tar imot en Terning kopp, triller de terningene spilleren vil kaste på nytt og sender den oppdaterte
+	 * koppen tilbake.
+	 */
 	public static ArrayList<Integer> oppdaterKopp(HttpServletRequest request, ArrayList<Integer> kopp) {
 		int removed = 0;
 		if (request.getParameter("index0")!=null) {
@@ -55,6 +87,14 @@ public class YatzyWeb {
 	}
 
 
+	/**
+	 * @author Birk Johannessen
+	 * @param runde
+	 * @param kopp
+	 * @return int sum
+	 * 
+	 * metoden summerer opp en terninkopp til score IHT spillreglene for hvilken runde
+	 */
 	public static int getSum(int runde, ArrayList<Integer> kopp) { //TODO fiks 6,7,15
 		int sum=0;
 		switch (runde) {

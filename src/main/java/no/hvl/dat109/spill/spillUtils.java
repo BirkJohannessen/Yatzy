@@ -3,7 +3,11 @@ package no.hvl.dat109.spill;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+/**
+ * 
+ * Brukes både i tekst spillet og web spillet
+ *
+ */
 
 public class spillUtils {
 	

@@ -1,6 +1,8 @@
 package no.hvl.dat109.servlets;
 
 import java.io.IOException;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,11 +12,25 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.persistence.internal.oxm.schema.model.List;
 
 import no.hvl.dat109.BackendUtils.LoginUtil;
+import no.hvl.dat109.dao.SpillerDAO;
 
-
+/**
+ * 
+ * @author Birk Johannessen
+ * 
+ * Meny for Yatzy
+ * 
+ * her kan endebrukeren velge å observere/se gammelt spilltilstand
+ * 
+ * eller starte et nytt spill
+ *
+ */
 
 @WebServlet(name = "MenyServlet", urlPatterns = { "/Meny" })
 public class MenyServlet extends HttpServlet {
+	
+	@EJB
+	private SpillerDAO spillerDAO;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (!LoginUtil.erInnlogget(request)) {
@@ -45,8 +61,7 @@ public class MenyServlet extends HttpServlet {
 				spillere[3] = request.getParameter("spiller4");
 				spillere[4] = request.getParameter("spiller5");
 				spillere[5] = request.getParameter("spiller6");
-				String newSpillID = "123123"; //TODO - genere skikkelig
-				//spillDAO.initSpill(newSpillID, spillere) //TODO - init nytt spill
+				String newSpillID = spillerDAO.initSpill(spillere);
 				response.sendRedirect("spillServlet?spillID="+newSpillID);
 				break;
 			default:
