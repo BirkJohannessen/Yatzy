@@ -7,6 +7,19 @@ import java.util.Arrays;
 
 public class spillUtils {
 	
+	public static int sumTabs(ArrayList<Integer> lagretTerningKast, int runde) {
+		if(lagretTerningKast.isEmpty()) {
+			return 0;
+		}	
+		int sum = 0;
+		for(int i=0;i<5;i++) {
+			if(lagretTerningKast.get(i)==runde+1) {
+				sum+=lagretTerningKast.get(i);
+			}
+		}
+		return sum;
+	}
+	
 	
 	/**
 	 * Sjekker om listen inneholder 3 like.
