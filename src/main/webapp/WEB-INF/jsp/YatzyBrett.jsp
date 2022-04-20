@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,37 +27,68 @@
 		</tr>
 		<tr>
 			<th class="runder">Enere</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>		
 		</tr>
 		<tr>
 			<th class="runder">Toere</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>	
 		</tr>
 		<tr>
 			<th class="runder">Treere</th>
-			<:forEach items="${spillerListe}" var="spiller">
+		<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		<tr>
 			<th class="runder">Firere</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
+		</tr>
 		<tr>
 			<th class="runder">Femmere</th>
-			<:forEach items="${score}" var="score">
-				<td>${score}</td>
-			</:forEach></tr>
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
+				<td>${spiller.score}</td>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">Seksere</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">Score del 1</th>
@@ -83,9 +116,14 @@
 		</tr>
 		<tr>
 			<th class="runder">1 par</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">2 par</th>
@@ -97,15 +135,25 @@
 		</tr>
 		<tr>
 			<th class="runder">3 like</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">4 like</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">Liten straight</th>
@@ -115,27 +163,47 @@
 		</tr>
 		<tr>
 			<th class="runder">Stor straight</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">Hus</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">Sjanse</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr>
 			<th class="runder">Yatzy!</th>
-			<:forEach items="${spillerListe}" var="spiller">
+			<c:forEach items="${spillerListe}" var="spiller">
+			<c:if test="${not empty spiller.score}">
 				<td>${spiller.score}</td>
-			</:forEach>
+			</c:if>
+			<c:otherwise>
+				<td></td>
+			</c:otherwise>
+			</c:forEach>
 		</tr>
 		<tr class="score">
 			<th class="runder">Total sum</th>
