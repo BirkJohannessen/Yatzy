@@ -26,8 +26,8 @@ public class SpillerDAO {
 	 *  henter mobil til alle spillere og legger i List
 	 */
 	public synchronized List<String>hentAlleSpillere() {
-		//TODO - henter mobil til alle spillere og legger i List
 		return null;
+
 		
 	}
 	/**
@@ -75,17 +75,6 @@ public class SpillerDAO {
 		//TODO
 		//lagrer en verdi i DB
 	}
-	
-	/**
-	 * 
-	 * @param mobil
-	 * @return String passord
-	 * 
-	 * henter et passord gitt en spillers mobil
-	 */
-	public synchronized String getPassord(String mobil) {
-		return null; //(String) em.createQuery("SELECT a.MOBIL FROM SPILLER a WHERE a.MOBIL like‘%"+mobil+"%’").getSingleResult();
-	}
 
 	/**
 	 * 
@@ -116,5 +105,3 @@ public class SpillerDAO {
 		return em.find(SpillerDB.class, mobil);
 	}
 }
-
-
