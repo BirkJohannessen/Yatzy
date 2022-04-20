@@ -15,6 +15,42 @@ public class SpillverdierDB {
 	private Integer index1;
 	private Integer index2;
 	private Integer index3;
+	private Integer index4;
+	private Integer index5;
+	private Integer index6;
+	private Integer index7;	
+	private Integer index8;
+	private Integer index9;
+	private Integer index10;
+	private Integer index11;
+	private Integer index12;
+	private Integer index13;
+	private Integer index14;
+
+	
+	//@Embedded
+	public SpillverdierDB() {}
+	//@Embedded
+	public SpillverdierDB(String spillID, String spillere,Integer index0,Integer index1,Integer index2,Integer index3,Integer index4,Integer index5,Integer index6,Integer index7,Integer index8,Integer index9,Integer index10,Integer index11,Integer index12,Integer index13, Integer index14) {
+		this.spillID=spillID;
+		this.spillere=spillere;
+		this.index0=index0;
+		this.index1=index1;
+		this.index2=index2;
+		this.index3=index3;
+		this.index4=index4;
+		this.index5=index5;
+		this.index6=index6;
+		this.index7=index7;
+		this.index8=index8;
+		this.index9=index9;
+		this.index10=index10;
+		this.index11=index11;
+		this.index12=index12;
+		this.index13=index13;
+		this.index14=index14;
+	}
+
 	public String getSpillere() {
 		return spillere;
 	}
@@ -109,55 +145,16 @@ public class SpillverdierDB {
 		this.spillID = spillID;
 	}
 
-
-
-	private Integer index4;
-	private Integer index6;
-	private Integer index7;	
-	private Integer index8;
-	private Integer index9;
-	private Integer index10;
-	private Integer index11;
-	private Integer index12;
-	private Integer index13;
-	private Integer index14;
-
-	
-	//@Embedded
-	public SpillverdierDB() {}
-	//@Embedded
-	public SpillverdierDB(String spillID, String spillere,Integer index0,Integer index1,Integer index2,Integer index3,Integer index4,Integer index5,Integer index6,Integer index7,Integer index8,Integer index9,Integer index10,Integer index11,Integer index12,Integer index13, Integer index14) {
-		this.spillID=spillID;
-		this.spillere=spillere;
-		this.index0=index0;
-		this.index1=index1;
-		this.index0=index2;
-		this.index1=index3;
-		this.index0=index4;
-		this.index1=index5;
-		this.index0=index6;
-		this.index1=index7;
-		this.index0=index8;
-		this.index1=index9;
-		this.index0=index10;
-		this.index1=index11;
-		this.index0=index12;
-		this.index1=index13;
-		this.index0=index14;
-
-	}
-
-
-
 	public String getSpillID() {
 		return spillID;
 	}
-
-
-
-	public void setMobil(String spillID) {
-		this.spillID = spillID;
+	public Integer getIndex5() {
+		return index5;
 	}
+	public void setIndex5(Integer index5) {
+		this.index5 = index5;
+	}
+
 
 	
 }

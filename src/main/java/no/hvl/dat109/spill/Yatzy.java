@@ -137,10 +137,5 @@ public class Yatzy {
 	}
 
 
-	public void storeData() {
-		//TODO
-		//might be removed.
-		
-	}
 	
 }

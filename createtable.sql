@@ -5,7 +5,7 @@ SET search_path = yatzy;
  CREATE TABLE spill
 (
     spillID VARCHAR(20) NOT NULL,
-    mobil mobilType NOT NULL,
+    spillere VARCHAR(48) NOT NULL,
     constraint pk_spillID primary key(spillID)
 );
 
@@ -18,18 +18,9 @@ CREATE TABLE spiller
     email VARCHAR(50) NOT NULL,
     adminAccess Boolean NOT NULL
 );
-CREATE type mobilType as
-(
-	mobil1 VARCHAR(20),
-	mobil2 VARCHAR(20),
-	mobil3 VARCHAR(20),
-	mobil4 VARCHAR(20),
-	mobil5 VARCHAR(20),
-	mobil6 VARCHAR(20)
-);
+
 CREATE TABLE spillverdier
 (
-	spill_values_id bigSerial NOT NULL,
 	spillID VARCHAR(20) NOT NULL,
 	mobil VARCHAR(20) NOT NULL,
 	index0 INT,
@@ -61,9 +52,9 @@ insert into
 
 
 insert into
-spill(spillID, mobil)
+spill(spillID, spillere)
 VALUES
-('1234567',ROW('95772111','95772333',null,null,null,null))
+('1234567','9577211195772333')
 
 insert into
 spillverdier(spillID,mobil)

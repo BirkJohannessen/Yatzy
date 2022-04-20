@@ -29,19 +29,19 @@ public class SpillDB {
 
 
 
-	public void setMobil(String spillID) {
+	public void setSpillID(String spillID) {
 		this.spillID = spillID;
 	}
 
 
 
-	public String getFornavn() {
+	public String getSpillere() {
 		return spillere;
 	}
 
 
 
-	public void setFornavn(String spillere) {
+	public void setSpillere(String spillere) {
 		this.spillere = spillere;
 	}
 
