@@ -9,7 +9,7 @@
 <title>Yatzy DB TEST</title>
 </head>
 <body>
-	<p>${param.f1}</p>
+	<p>${param.test1}</p>
 	tab;
 	<c:forEach items="${testTab}" var="testTab" varStatus="loop">
 		<div>

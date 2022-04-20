@@ -19,12 +19,14 @@ public class testServlet extends HttpServlet {
 	private SpillerDAO spillerDAO;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("test__123");
+		System.out.println(spillerDAO.getSpiller("95772111").getPassord());
 		HttpSession session = request.getSession(true);
 		session.setMaxInactiveInterval(600);
 		session.setAttribute("mobil", "123123");
-		//request.setAttribute("test1", spillerDAO.getSpiller("95772111").getPassord());
+		request.setAttribute("test1", spillerDAO.getSpiller("95772111").getPassord());
 		//request.getSession().setAttribute("testTab", spillerDAO.hentSpillere("1234567"));
-		request.getRequestDispatcher("WEB-INF/jsp/SpillVent.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/TestDB.jsp").forward(request, response);
 	}
 
 

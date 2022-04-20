@@ -29,7 +29,7 @@ public class Validator {
 	 */
 	public static boolean isValidLogin(String mobil, String passord, SpillerDAO spillerDAO) {
 		if(spillerDAO.finnes(mobil)) {
-			return spillerDAO.getPassord(mobil).equals(passord);
+			return spillerDAO.getSpiller("95772111").getPassord().equals(passord);
 		}else {
 			return false;
 		}
