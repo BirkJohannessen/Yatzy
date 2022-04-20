@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class SpillerDAO {
-	@PersistenceContext(name ="spillerDB")
+	@PersistenceContext(name ="spillerPU")
 	private EntityManager em;
 	
 
@@ -25,7 +25,7 @@ public class SpillerDAO {
 	 * 
 	 *  henter mobil til alle spillere og legger i List
 	 */
-	public List<String>hentAlleSpillere() {
+	public synchronized List<String>hentAlleSpillere() {
 		//TODO - henter mobil til alle spillere og legger i List
 		return null;
 		
@@ -37,10 +37,9 @@ public class SpillerDAO {
 	 * 
 	 * henter mobil til alle spillere gitt et spillID og legger i List
 	 */
-	public List<String> hentSpillere(String spillID){
+	public synchronized List<String> hentSpillere(String spillID){
+		return null;//em.createQuery("SELECT MOBIL FROM SPILL WHERE SPILLID="+spillID, String.class).getResultList();
 		//TODO - henter mobil til alle spillere gitt et spillID og legger i List
-
-		return null;
 	}
 	
 	/**
@@ -58,7 +57,7 @@ public class SpillerDAO {
 	 * 
 	 * 
 	 */
-	public ArrayList<Integer> hentSpillTilstand(String spillID){
+	public synchronized ArrayList<Integer> hentSpillTilstand(String spillID){
 		//TODO
 		//skal levere IHT DB modellen
 		return null;
@@ -72,7 +71,7 @@ public class SpillerDAO {
 	 * 
 	 * tar et spillID og lagrer en sum for en runde i databasen.
 	 */
-	public void setScore(String spillID, int runde, int sum, String mobil) {
+	public synchronized void setScore(String spillID, int runde, int sum, String mobil) {
 		//TODO
 		//lagrer en verdi i DB
 	}
@@ -84,9 +83,8 @@ public class SpillerDAO {
 	 * 
 	 * henter et passord gitt en spillers mobil
 	 */
-	public String getPassord(String mobil) {
-		//TODO - henter passordet til en bruker
-		return null;
+	public synchronized String getPassord(String mobil) {
+		return null; //(String) em.createQuery("SELECT a.MOBIL FROM SPILLER a WHERE a.MOBIL like‘%"+mobil+"%’").getSingleResult();
 	}
 
 	/**
@@ -96,7 +94,7 @@ public class SpillerDAO {
 	 * 
 	 * ser om en spiller finnes i databasen
 	 */
-	public boolean finnes(String mobil) {
+	public synchronized boolean finnes(String mobil) {
 		//TODO - ser om en spiller finns gitt et mobilnummer.
 		return false;
 	}
@@ -108,11 +106,14 @@ public class SpillerDAO {
 	 * 
 	 * lager et nytt spill i databasen med 1-6 spillere
 	 */
-	public String initSpill(String[] spillere) {
+	public synchronized String initSpill(String[] spillere) {
 		//TODO lager plass i DB til et nytt spill
 		
 		//returnerer et generert spillID
 		return null;
+	}
+	public synchronized SpillerDB getSpiller(String mobil) {
+		return em.find(SpillerDB.class, mobil);
 	}
 }
 

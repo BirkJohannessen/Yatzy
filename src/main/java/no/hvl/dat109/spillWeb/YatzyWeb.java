@@ -19,17 +19,18 @@ import no.hvl.dat109.spill.spillUtils;
 	 */
 public class YatzyWeb {
 	
-	/**
-	 * @author BirkJohannessen
-	 * @param spillTilstand fra DAO
-	 * @return int runde
-	 * 
-	 * Metoden skal ta spilletsTilstand og finne ut hvilken runde vi har kommet til.
-	 */
 	public static int getRunde(SpillerDAO spillerDAO, String spillID) {
 		ArrayList<Integer> spill = spillerDAO.hentSpillTilstand(spillID);
 		List<String> spillerTab = spillerDAO.hentSpillere(spillID);
-		return 0;
+		int antSpillere = spillerTab.size();
+		int index=0;
+		for(int i=0;i<spill.size();i++) {
+			if(spill.get(i)==null) {
+				index=i;
+				break;
+			}
+		}
+		return (int)(index/antSpillere)+1;
 	}
 	
 	/**
@@ -44,8 +45,16 @@ public class YatzyWeb {
 		ArrayList<Integer> spill = spillerDAO.hentSpillTilstand(spillID);
 		List<String> spillerTab = spillerDAO.hentSpillere(spillID);
 		int antSpillere = spillerTab.size();
-		// TODO logikk for å hente en spillers tur
-		return null;
+		
+		int index=0;
+		for(int i=0;i<spill.size();i++) {
+			if(spill.get(i)==null) {
+				index=i;
+				break;
+			}
+		}
+		String spiller = spillerTab.get(index%antSpillere);
+		return spiller;
 	}
 
 	/**

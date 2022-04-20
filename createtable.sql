@@ -1,42 +1,37 @@
 DROP SCHEMA IF EXISTS yatzy CASCADE;
 CREATE SCHEMA yatzy;
 SET search_path = yatzy;
-
-CREATE type mobilType
+ 
+ CREATE TABLE spill
 (
-	mobil CHARACTER VARYING (20)
-);
-
-CREATE TABLE spill
-(
-    spillID CHARACTER VARYING (20) NOT NULL,
+    spillID VARCHAR(20) NOT NULL,
     mobil mobilType NOT NULL,
-);
-
-CREATE TABLE spiller_spill_m2m
-(
-    mobil CHARACTER VARYING (20) NOT NULL,
-    spillID CHARACTER VARYING (20) NOT NULL,
-    PRIMARY KEY(mobil, spillID)
-    CONSTRAINT fk_mobil FOREIGN KEY(mobil) REFERENCES spiller(mobil)
-    CONSTRAINT fk_spillID FOREIGN KEY(spillID) REFERENCES spill(spillID)
+    constraint pk_spillID primary key(spillID)
 );
 
 CREATE TABLE spiller
 (
-    mobil CHARACTER VARYING (20) NOT NULL,
-    fornavn CHARACTER VARYING (20) NOT NULL,
-    etternavn CHARACTER VARYING (20) NOT NULL,
-    passord CHARACTER VARYING (256) NOT NULL,
-    email CHARACTER VARYING (50) NOT NULL,
-    adminAccess Boolean NOT NULL,
-	spillID CHARACTER VARYING (20) NOT NULL,
+    mobil VARCHAR(20) NOT NULL,
+    fornavn VARCHAR(20) NOT NULL,
+    etternavn VARCHAR(20) NOT NULL,
+    passord VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    adminAccess Boolean NOT NULL
+);
+CREATE type mobilType as
+(
+	mobil1 VARCHAR(20),
+	mobil2 VARCHAR(20),
+	mobil3 VARCHAR(20),
+	mobil4 VARCHAR(20),
+	mobil5 VARCHAR(20),
+	mobil6 VARCHAR(20)
 );
 CREATE TABLE spillverdier
 (
-	spill_values_id CHARACTER VARYING (20) NOT NULL,
-	spillID CHARACTER VARYING (20) NOT NULL,
-	mobil CHARACTER VARYING (20) NOT NULL,
+	spill_values_id bigSerial NOT NULL,
+	spillID VARCHAR(20) NOT NULL,
+	mobil VARCHAR(20) NOT NULL,
 	index0 INT,
 	index1 INT,
 	index2 INT,
@@ -52,15 +47,9 @@ CREATE TABLE spillverdier
 	index12 INT,
 	index13 INT,
 	index14 INT,
-    CONSTRAINT pk_spill_values_id primary key(spill_values_id)
+    CONSTRAINT pk_spill_values_id primary key(spill_values_id),
 	CONSTRAINT fk_spillID foreign key(spillID) REFERENCES spill(spillID)
 );
-
-
-insert into
-spill(spillID, mobil)
-VALUES
- ('123456',95772111,95772333,95772444)
 
 insert into
  spiller(mobil, fornavn, etternavn, passord, email, adminAccess)
@@ -69,3 +58,17 @@ insert into
  ('95772333', 'Anine', 'Hammersborg', '123','anine.hammersborg@hotmail.com',false),
  ('95772444','AM','Gjerdalen','123','am.gjerdalen@hotmail.com',false),
  ('95772555','Simen','hauge', '123','simen.hauge@hotmail.com',false);
+
+
+insert into
+spill(spillID, mobil)
+VALUES
+('1234567',ROW('95772111','95772333',null,null,null,null))
+
+insert into
+spillverdier(spillID,mobil)
+VALUES
+('1234567','9572111'),
+('1234567','9572333')
+
+ 
